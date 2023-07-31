@@ -1,0 +1,11 @@
+@import "../../scss-utils/variables.scss";
+
+.header {
+  background-color: $headerFooterColor;
+  &__avatar-frame {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: $white;
+    border-radius: 50%;
+  }
+}
