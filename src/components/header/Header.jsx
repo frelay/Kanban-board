@@ -1,34 +1,38 @@
+import { useState } from "react";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
+import UserAvatar from "../util-components/UserAvatar";
+import UserMenu from "./UserMenu";
 import "./Header.scss";
 
 export default function Header() {
+  // Состояние для меню пользователя (Невидимый/Видимый)
+  const [unvisible, setVisible] = useState(false);
+
   return (
+    // Рисуем header
     <header className="header">
       <h1 className="header__title">Awesome Kanban Board</h1>
-      <div className="header__user-avatar">
-        <div className="header__avatar-frame"></div>
-      </div>
-      <div className="header__user-menu">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="header__arrow-down"
+      <div className="header__user">
+        <div className="header__user-avatar">
+          <div className="header__avatar-frame">
+            <UserAvatar />
+          </div>
+        </div>
+        <div
+          className="header__user-menu"
+          // По клику на стрелочку меняем состояние с невидимого на видимый
+          onClick={() => (unvisible ? setVisible(false) : setVisible(true))}
         >
-          <g clip-path="url(#clip0_2_9)">
-            <path
-              d="M7.415 8.20999L12 12.795L16.585 8.20999L18 9.62499L12 15.625L6 9.62499L7.415 8.20999Z"
-              fill="white"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_2_9">
-              <rect width="24" height="24" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
+          {/* В зависимости от видимости меню рисуем разные стрелочки */}
+          {!unvisible ? (
+            <RiArrowDownSLine className="header__arrow-down" />
+          ) : (
+            <RiArrowUpSLine className="header__arrow-up" />
+          )}
+        </div>
       </div>
+      {/* В зависимости от состояния рисуем или нет меню пользователя */}
+      {unvisible && <UserMenu />}
     </header>
   );
 }

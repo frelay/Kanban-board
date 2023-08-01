@@ -1,0 +1,36 @@
+@import "../../scss-utils/variables.scss";
+
+.user-menu {
+  position: absolute;
+  right: 1rem;
+  top: 3.5rem;
+  z-index: 2;
+  width: 8.375rem;
+  background-color: $white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  &__square {
+    position: absolute;
+    right: 1.875rem;
+    top: -5.7px;
+    width: 0.7rem;
+    height: 0.7rem;
+    background-color: $white;
+    transform: rotate(45deg);
+  }
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+  }
+  &__link {
+    font-family: $mainFont;
+    font-size: $menuFontSize;
+    color: $black;
+    cursor: pointer;
+  }
+  &__link:hover {
+    font-weight: bold;
+  }
+}
