@@ -1,6 +1,20 @@
 @import "../../scss-utils/variables.scss";
 
 .main {
-  height: 92.7vh;
+  min-height: 89.4vh;
   background-color: $mainColor;
+  padding: 1.25rem 1rem;
+  &__tasks-block-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+    @media screen and (max-width: 665px) {
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 415px) {
+    min-height: 94vh;
+  }
 }
