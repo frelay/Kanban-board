@@ -1,16 +1,26 @@
-import { HiOutlinePlus } from "react-icons/hi";
+import SubmitBtn from "../../util-components/SubmitBtn";
+import AddBtn from "../../util-components/AddBtn";
 
-export default function TaskBtn({ onClick, inputText, visible }) {
+export default function TaskBtn({
+  onClick,
+  inputText,
+  visible,
+  addTask,
+  tasks,
+  blockName,
+}) {
   return (
     <>
       {/* Рисуем кнопки исходя из видимости инпута и заполнен ли текст */}
       {visible && inputText ? (
-        <button className="tasks-block__submit-btn">Submit</button>
+        <SubmitBtn
+          taskText={inputText}
+          addTask={addTask}
+          tasks={tasks}
+          blockName={blockName}
+        />
       ) : (
-        <button className="tasks-block__add-btn" onClick={() => onClick(true)}>
-          <HiOutlinePlus />
-          Add card
-        </button>
+        <AddBtn onClick={onClick} />
       )}
     </>
   );
