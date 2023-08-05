@@ -1,17 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import TaskInput from "./task-form/TaskInput";
 import TaskBtn from "./task-form/TaskBtn";
+import TasksContext from "../../context/TasksContext";
 import "./TasksBlock.scss";
 
-export default function TasksBlock({ blockName }) {
+export default function Backlog({ blockName }) {
   // Состояние для показа инпута
   const [unvisible, setVisible] = useState(false);
   // Состояние для контролируемого инпута
   const [text, setText] = useState("");
-  // Состояние для списка задач
-  const [tasks, setTasks] = useState([]);
-
-  console.log(tasks);
+  // Используем контекст
+  const { tasks, setTasks } = useContext(TasksContext);
 
   // Обработчик для контролируемого ввода
   function handleInputChange(e) {

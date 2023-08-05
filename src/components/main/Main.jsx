@@ -1,4 +1,5 @@
-import TasksBlock from "../tasks-block/TasksBlock";
+import Backlog from "../tasks-block/Backlog";
+import Ready from "../tasks-block/Ready";
 import "./Main.scss";
 
 export default function Main() {
@@ -6,7 +7,8 @@ export default function Main() {
     <main className="main">
       {/* Рисуем блоки для задач */}
       <div className="main__tasks-block-wrapper">
-        <TasksBlock blockName="Backlog" />
+        <Backlog blockName="Backlog" />
+        <Ready blockName="Ready" />
       </div>
     </main>
   );
