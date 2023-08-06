@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import TaskInput from "./task-form/TaskInput";
 import TaskBtn from "./task-form/TaskBtn";
-import TasksContext from "../../context/TasksContext";
+import { TasksContext } from "../../context/TasksContext";
 import "./TasksBlock.scss";
 
 export default function Backlog({ blockName }) {

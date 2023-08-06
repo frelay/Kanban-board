@@ -1,9 +1,15 @@
 import { createContext } from "react";
 
-// Контекст для задач
+// Контекст для задач бэклога
 const TasksContext = createContext({
   tasks: [],
   setTasks: () => {},
 });
 
-export default TasksContext;
+// Контекст для задач Ready
+const ReadyTasksContext = createContext({
+  readyTasks: [],
+  setReadyTasks: () => {},
+});
+
+export { TasksContext, ReadyTasksContext };
