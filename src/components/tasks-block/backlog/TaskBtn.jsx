@@ -2,7 +2,7 @@ import SubmitBtn from "../../util-components/SubmitBtn";
 import AddBtn from "../../util-components/AddBtn";
 
 export default function TaskBtn({
-  onClick,
+  setVisible,
   inputText,
   visible,
   addTask,
@@ -18,9 +18,10 @@ export default function TaskBtn({
           addTask={addTask}
           tasks={tasks}
           blockName={blockName}
+          setVisible={setVisible}
         />
       ) : (
-        <AddBtn onClick={onClick} />
+        <AddBtn setVisible={setVisible} />
       )}
     </>
   );

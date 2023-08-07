@@ -1,5 +1,5 @@
-import Backlog from "../tasks-block/Backlog";
-import Ready from "../tasks-block/Ready";
+import Backlog from "../tasks-block/backlog/Backlog";
+import Ready from "../tasks-block/ready/Ready";
 import "./Main.scss";
 
 export default function Main() {

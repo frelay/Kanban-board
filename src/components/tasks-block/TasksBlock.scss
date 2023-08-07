@@ -35,7 +35,8 @@
   }
   &__input,
   &__select,
-  &__option {
+  &__select-content {
+    position: relative;
     border: none;
     border-radius: 5px;
     width: 15.43rem;
@@ -47,7 +48,28 @@
     background-color: $white;
     color: $black;
   }
-  &__add-btn {
+  &__select-btn {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  &__select-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    right: 0;
+    margin-top: 1rem;
+  }
+  &__select-item {
+    cursor: pointer;
+  }
+  &__select-item:hover {
+    background-color: #dedede;
+    border-radius: 5px;
+  }
+  &__add-btn,
+  &__add-btn_disabled {
     display: flex;
     width: 6.375rem;
     align-items: center;
@@ -57,6 +79,9 @@
     font-size: $mainFontSize;
     color: $addCardColor;
     padding: 5px;
+    &_disabled {
+      cursor: default;
+    }
   }
   &__add-btn:hover {
     border-radius: 5px;

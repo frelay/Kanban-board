@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import TaskInput from "./task-form/TaskInput";
-import TaskBtn from "./task-form/TaskBtn";
-import { TasksContext } from "../../context/TasksContext";
-import "./TasksBlock.scss";
+import TaskInput from "./TaskInput";
+import TaskBtn from "./TaskBtn";
+import { TasksContext } from "../../../context/TasksContext";
+import "../TasksBlock.scss";
 
 export default function Backlog({ blockName }) {
   // Состояние для показа инпута
@@ -44,7 +44,7 @@ export default function Backlog({ blockName }) {
       )}
       {/* Рисуем кнопки */}
       <TaskBtn
-        onClick={setVisible}
+        setVisible={setVisible}
         inputText={text}
         visible={unvisible}
         addTask={addTaskAtBacklog}

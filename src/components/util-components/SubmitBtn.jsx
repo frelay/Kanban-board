@@ -1,6 +1,12 @@
 import { v4 } from "uuid";
 
-export default function SubmitBtn({ taskText, addTask, tasks, blockName }) {
+export default function SubmitBtn({
+  taskText,
+  addTask,
+  tasks,
+  blockName,
+  setVisible,
+}) {
   const task = {
     id: v4(),
     title: taskText,
@@ -11,7 +17,10 @@ export default function SubmitBtn({ taskText, addTask, tasks, blockName }) {
   return (
     <button
       className="tasks-block__submit-btn"
-      onClick={() => addTask(task, tasks)}
+      onClick={() => {
+        addTask(task, tasks);
+        setVisible(false);
+      }}
     >
       Submit
     </button>
