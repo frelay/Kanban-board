@@ -1,16 +1,10 @@
 import { v4 } from "uuid";
 
-export default function SubmitBtn({
-  taskText,
-  addTask,
-  tasks,
-  blockName,
-  setVisible,
-}) {
+export default function SubmitBtn({ taskText, addTask, tasks, setVisible }) {
   const task = {
     id: v4(),
     title: taskText,
-    blockName: blockName,
+    description: "This is the task's description",
   };
 
   // Кнопка сабмита, так же возвращает массив с задачами

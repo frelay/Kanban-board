@@ -6,11 +6,14 @@ import { TasksContext } from "./context/TasksContext";
 import "./App.scss";
 
 function App() {
-  // Состояние для списка задач
+  // Состояние для списков задач
   const [tasks, setTasks] = useState([]);
+  const [readyTasks, setReadyTasks] = useState([]);
 
   return (
-    <TasksContext.Provider value={{ tasks, setTasks }}>
+    <TasksContext.Provider
+      value={{ tasks, setTasks, readyTasks, setReadyTasks }}
+    >
       <div className="App">
         <Header />
         <Main />

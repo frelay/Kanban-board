@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import { HiOutlinePlus } from "react-icons/hi";
-import { TasksContext, ReadyTasksContext } from "../../../context/TasksContext";
+import { TasksContext } from "../../../context/TasksContext";
+import transferTask from "../../../utils/transferTask";
 
 export default function ReadyBtns({
   isVisible,
   setVisible,
   selectedTask,
-  addReadyTasks,
+  setSelectedTask,
 }) {
   // Используем контекст
-  const { tasks } = useContext(TasksContext);
-  const { readyTasks } = useContext(ReadyTasksContext);
+  const { tasks, setTasks, readyTasks, setReadyTasks } =
+    useContext(TasksContext);
 
   return (
     <>
@@ -31,7 +32,21 @@ export default function ReadyBtns({
         </button>
       ) : (
         // Если выбрали задачу из дропдауна отображаем кнопку Submit
-        <button className="tasks-block__submit-btn">Submit</button>
+        <button
+          className="tasks-block__submit-btn"
+          onClick={() => {
+            transferTask(
+              selectedTask,
+              tasks,
+              readyTasks,
+              setTasks,
+              setReadyTasks
+            );
+            setSelectedTask("");
+          }}
+        >
+          Submit
+        </button>
       )}
     </>
   );

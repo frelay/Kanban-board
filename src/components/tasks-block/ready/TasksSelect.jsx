@@ -12,7 +12,7 @@ export default function TasksSelect({ tasks, selectedTask, setSelectedTask }) {
         className="tasks-block__select-btn"
         onClick={(e) => setIsActive(!isActive)}
       >
-        {selectedTask ? selectedTask : "Выберите задачу"}
+        {selectedTask.title ? selectedTask.title : "Выберите задачу"}
         <RiArrowDownSLine />
       </div>
       {isActive && (
@@ -22,7 +22,7 @@ export default function TasksSelect({ tasks, selectedTask, setSelectedTask }) {
               className="tasks-block__select-item"
               key={task.id}
               onClick={(e) => {
-                setSelectedTask(task.title);
+                setSelectedTask(task);
                 setIsActive(false);
               }}
             >

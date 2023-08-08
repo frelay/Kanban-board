@@ -7,7 +7,6 @@ export default function TaskBtn({
   visible,
   addTask,
   tasks,
-  blockName,
 }) {
   return (
     <>
@@ -17,7 +16,6 @@ export default function TaskBtn({
           taskText={inputText}
           addTask={addTask}
           tasks={tasks}
-          blockName={blockName}
           setVisible={setVisible}
         />
       ) : (

@@ -49,7 +49,6 @@ export default function Backlog({ blockName }) {
         visible={unvisible}
         addTask={addTaskAtBacklog}
         tasks={tasks}
-        blockName={blockName}
       />
     </div>
   );
