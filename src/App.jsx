@@ -9,15 +9,29 @@ function App() {
   // Состояние для списков задач
   const [tasks, setTasks] = useState([]);
   const [readyTasks, setReadyTasks] = useState([]);
+  const [inProgressTasks, setInProgressTasks] = useState([]);
+  const [finishedTasks, setFinishedTasks] = useState([]);
 
   return (
     <TasksContext.Provider
-      value={{ tasks, setTasks, readyTasks, setReadyTasks }}
+      value={{
+        tasks,
+        setTasks,
+        readyTasks,
+        setReadyTasks,
+        inProgressTasks,
+        setInProgressTasks,
+        finishedTasks,
+        setFinishedTasks,
+      }}
     >
       <div className="App">
         <Header />
         <Main />
-        <Footer backlogTasks={tasks.length} />
+        <Footer
+          backlogTasks={tasks.length}
+          finishedTasks={finishedTasks.length}
+        />
       </div>
     </TasksContext.Provider>
   );

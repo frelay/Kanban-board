@@ -6,6 +6,10 @@ const TasksContext = createContext({
   setTasks: () => {},
   readyTasks: [],
   setReadyTasks: () => {},
+  inProgressTasks: [],
+  setInProgressTasks: () => {},
+  finishedTasks: [],
+  setFinishedTasks: () => {},
 });
 
 export { TasksContext };

@@ -3,20 +3,23 @@ import { HiOutlinePlus } from "react-icons/hi";
 import { TasksContext } from "../../../context/TasksContext";
 import transferTask from "../../../utils/transferTask";
 
-export default function ReadyBtns({
+export default function FinishedBtns({
   isVisible,
   setVisible,
   selectedTask,
   setSelectedTask,
 }) {
-  // Используем контекст
-  const { tasks, setTasks, readyTasks, setReadyTasks } =
-    useContext(TasksContext);
+  const {
+    inProgressTasks,
+    finishedTasks,
+    setFinishedTasks,
+    setInProgressTasks,
+  } = useContext(TasksContext);
 
   return (
     <>
       {/* Тут такая логика - если задач нет в бэклоге, то кнопка неактивна */}
-      {tasks.length === 0 ? (
+      {inProgressTasks.length === 0 ? (
         <button className="tasks-block__add-btn_disabled" disabled={!isVisible}>
           <HiOutlinePlus />
           Add card
@@ -38,10 +41,10 @@ export default function ReadyBtns({
           onClick={() => {
             transferTask(
               selectedTask,
-              tasks,
-              readyTasks,
-              setTasks,
-              setReadyTasks
+              inProgressTasks,
+              finishedTasks,
+              setInProgressTasks,
+              setFinishedTasks
             );
             // Убираем выбраную задачу из поля выбора
             setSelectedTask("");

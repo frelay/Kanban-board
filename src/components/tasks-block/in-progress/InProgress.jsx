@@ -1,12 +1,11 @@
-import { useContext, useState } from "react";
-import TasksSelect from "../../util-components/TasksSelect";
-import ReadyBtns from "./ReadyBtns";
+import { useState, useContext } from "react";
 import { TasksContext } from "../../../context/TasksContext";
-import "../TasksBlock.scss";
+import TasksSelect from "../../util-components/TasksSelect";
+import InProgressBtns from "./InProgressBtns";
 
-export default function Ready({ blockName }) {
+export default function InProgress({ blockName }) {
   // Используем контект
-  const { tasks, readyTasks } = useContext(TasksContext);
+  const { inProgressTasks, readyTasks } = useContext(TasksContext);
   // Состояние для контролируемого селекта
   const [selectedTask, setSelectedTask] = useState("");
   // Состояние для видимости дропдауна
@@ -15,10 +14,10 @@ export default function Ready({ blockName }) {
   return (
     <div className="tasks-block">
       <h2 className="tasks-block__title">{blockName}</h2>
-      {/* Рисуем задачи для блока Ready */}
-      {readyTasks.length !== 0 && (
+      {/* Рисуем задачи для блока InProgress */}
+      {inProgressTasks.length !== 0 && (
         <div className="tasks-block__tasks-wrapper">
-          {readyTasks.map((task) => (
+          {inProgressTasks.map((task) => (
             <div className="tasks-block__task" key={task.id}>
               {task.title}
             </div>
@@ -28,13 +27,13 @@ export default function Ready({ blockName }) {
       {/* Рисуем селект для выбора задач из бэклога */}
       {isVisible && (
         <TasksSelect
-          tasks={tasks}
+          tasks={readyTasks}
           selectedTask={selectedTask}
           setSelectedTask={setSelectedTask}
         />
       )}
       {/* Рисуем кнопки */}
-      <ReadyBtns
+      <InProgressBtns
         isVisible={isVisible}
         setVisible={setVisible}
         selectedTask={selectedTask}
