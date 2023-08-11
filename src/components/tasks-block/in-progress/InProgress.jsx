@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { TasksContext } from "../../../context/TasksContext";
 import TasksSelect from "../../util-components/TasksSelect";
 import InProgressBtns from "./InProgressBtns";
@@ -10,6 +10,11 @@ export default function InProgress({ blockName }) {
   const [selectedTask, setSelectedTask] = useState("");
   // Состояние для видимости дропдауна
   const [isVisible, setVisible] = useState(false);
+
+  // Добавляем задачи в localStorage
+  useEffect(() => {
+    localStorage.setItem("inProgressTasks", JSON.stringify(inProgressTasks));
+  }, [inProgressTasks]);
 
   return (
     <div className="tasks-block">

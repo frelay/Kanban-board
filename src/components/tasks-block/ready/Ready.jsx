@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import TasksSelect from "../../util-components/TasksSelect";
 import ReadyBtns from "./ReadyBtns";
 import { TasksContext } from "../../../context/TasksContext";
@@ -11,6 +11,11 @@ export default function Ready({ blockName }) {
   const [selectedTask, setSelectedTask] = useState("");
   // Состояние для видимости дропдауна
   const [isVisible, setVisible] = useState(false);
+
+  // Добавляем задачи в localStorage
+  useEffect(() => {
+    localStorage.setItem("readyTasks", JSON.stringify(readyTasks));
+  }, [readyTasks]);
 
   return (
     <div className="tasks-block">

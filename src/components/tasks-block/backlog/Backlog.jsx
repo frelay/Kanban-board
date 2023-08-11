@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TaskInput from "./TaskInput";
 import TaskBtn from "./TaskBtn";
 import { TasksContext } from "../../../context/TasksContext";
@@ -23,6 +23,11 @@ export default function Backlog({ blockName }) {
     setTasks(newTasksArray);
     setText("");
   }
+
+  // Добавляем задачи в localStorage
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     // Компонент для блока задач
