@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import TasksSelect from "../../util-components/TasksSelect";
 import ReadyBtns from "./ReadyBtns";
 import { TasksContext } from "../../../context/TasksContext";
@@ -25,7 +26,9 @@ export default function Ready({ blockName }) {
         <div className="tasks-block__tasks-wrapper">
           {readyTasks.map((task) => (
             <div className="tasks-block__task" key={task.id}>
-              {task.title}
+              <Link to={task.id} className="tasks-block__link">
+                {task.title}
+              </Link>
             </div>
           ))}
         </div>

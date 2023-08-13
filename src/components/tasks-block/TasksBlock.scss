@@ -33,6 +33,13 @@
   &__task:last-child {
     margin-bottom: 0;
   }
+  &__link {
+    text-decoration: none;
+    color: $black;
+  }
+  &__link:hover {
+    font-weight: bold;
+  }
   &__input,
   &__select,
   &__select-content {

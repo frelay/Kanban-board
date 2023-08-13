@@ -17,4 +17,44 @@
   @media screen and (max-width: 415px) {
     min-height: 94vh;
   }
+  &__task-view {
+    position: relative;
+    background-color: $white;
+    padding: 1.75rem;
+    height: 85vh;
+    border-radius: 5px;
+  }
+  &__task-title {
+    font-family: $mainFont;
+    font-weight: normal;
+    margin-bottom: 2.18rem;
+  }
+  &__task-description {
+    width: 50%;
+    font-size: $mainFontSize;
+    font-family: $mainFont;
+  }
+  &__decription-input {
+    font-family: $mainFont;
+    font-size: $mainFontSize;
+    background-color: $white;
+    color: $black;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid $blockColor;
+    width: 50vw;
+    height: 8.5rem;
+    resize: none;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  &__task-link {
+    position: absolute;
+    top: 1.375rem;
+    right: 1.375rem;
+    font-size: 2rem;
+    border: none;
+    background-color: $white;
+    cursor: pointer;
+  }
 }
