@@ -1,6 +1,9 @@
-export default function FillTaskDescr({ inputChange, description, task }) {
-  // ТУТ НАДО ПОДУМАТЬ НАД ДОБАВЛЕНИЕМ ОПИСАНИЯ ЗАДАЧИ!
-
+export default function FillTaskDescr({
+  inputChange,
+  description,
+  task,
+  addDescr,
+}) {
   // Компонент для редактирования описания задачи
   return (
     <>
@@ -13,12 +16,7 @@ export default function FillTaskDescr({ inputChange, description, task }) {
       />
       <button
         className="main__decription-submit tasks-block__submit-btn"
-        onClick={() =>
-          console.log(
-            "Task title - " + task.title,
-            "Task descr - " + description
-          )
-        }
+        onClick={() => addDescr(description, task)}
       >
         Submit
       </button>

@@ -34,6 +34,9 @@
     font-size: $mainFontSize;
     font-family: $mainFont;
   }
+  &__task-description-text {
+    margin-bottom: 1rem;
+  }
   &__decription-input {
     font-family: $mainFont;
     font-size: $mainFontSize;
